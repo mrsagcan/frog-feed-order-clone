@@ -1,18 +1,20 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelData : MonoBehaviour
+[CreateAssetMenu(fileName = "LevelData", menuName = "Game/Level Data")]
+public class LevelData : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] public int rows = 5;
+    [SerializeField] public int columns = 5;
+    [SerializeField] public CellDictionary[] cells;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
+
+[Serializable]
+public struct CellDictionary
+{
+    [SerializeField] public Vector3 position;
+    [SerializeField] public Element element;
 }
