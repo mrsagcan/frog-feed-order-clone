@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: bb81b5f89e4129a4c9ff6f0721177b65
+guid: a16250962290b394aa7462476d2a09fb
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: FrogMaterial
-    second: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
