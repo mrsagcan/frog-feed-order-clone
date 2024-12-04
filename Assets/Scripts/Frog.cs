@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Frog : Element
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Direction pose;
+    [SerializeField] private Tongue tongue;
+
+    private void OnEnable()
     {
-        
+        Actions.OnFrogClicked += OnClicked;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        Actions.OnFrogClicked -= OnClicked;
+    }
+
+    public void OnClicked()
+    {
+        if(!tongue.isReleasing && !tongue.isRetracting)
+        {
+            tongue.Release();
+        }
     }
 }

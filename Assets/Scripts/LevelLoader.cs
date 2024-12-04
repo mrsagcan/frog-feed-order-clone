@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UIElements;
 
+//[ExecuteAlways]
 public class LevelLoader : MonoBehaviour
 {
     [SerializeField] private LevelData levelData;
@@ -25,6 +26,8 @@ public class LevelLoader : MonoBehaviour
             Vector3 spawnPoint = new Vector3 (xPos, 0, yPos);
             var spawnedElement = Instantiate(elem.element, spawnPoint, Quaternion.identity);
             spawnedElement.transform.SetParent(grid);
+            GameManager.Instance.MaxMoves = levelData.MaxMoves;
+            GameManager.Instance.MovesLeft = levelData.MaxMoves;
         }
     }
 }

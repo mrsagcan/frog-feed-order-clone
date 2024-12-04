@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class Tongue : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private BoxCollider boxCollider;
+
+    [HideInInspector] public bool isReleasing = false;
+    [HideInInspector] public bool isRetracting = false;
+
+    private void Awake()
     {
-        
+        boxCollider = GetComponent<BoxCollider>();        
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Release()
     {
-        
+        isReleasing = true;
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+
     }
 }

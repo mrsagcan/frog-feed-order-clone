@@ -65,3 +65,4 @@ MonoBehaviour:
     element: {fileID: 8576632803127595496, guid: ed57d556141c1fe4886f8c117eef7d56, type: 3}
   - position: {x: 4, y: 4, z: 0}
     element: {fileID: 8576632803127595496, guid: ed57d556141c1fe4886f8c117eef7d56, type: 3}
+  MaxMoves: 20

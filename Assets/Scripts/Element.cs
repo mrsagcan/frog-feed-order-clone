@@ -5,15 +5,15 @@ using UnityEngine;
 
 public class Element : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Color color;
+}
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+public enum Color
+{
+    Blue, Green, Purple, Red, Yellow
+}
+
+public enum Direction
+{
+    Left, Right, Up, Down
 }
