@@ -1,48 +1,38 @@
 using UnityEngine;
 
-public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
+public abstract class Singleton<T> : MonoBehaviour where T : Component
 {
     public static T Instance { get; private set; }
 
     protected virtual void Awake()
     {
-        if(Instance == null)
+        if (Instance != null)
         {
-            Instance = FindObjectOfType<T>();
-
-            if(Instance == null) 
-            {
-                GameObject newInstance = new GameObject();
-                Instance = newInstance.AddComponent<T>();
-                newInstance.name = typeof(T).ToString();
-            }
+            Destroy(gameObject);
         }
-    }
-
-    protected virtual void OnDisable()
-    {
-        Instance = null;
-        Destroy(gameObject);
+        else
+        {
+            Instance = this as T;
+        }
     }
 }
 
-public abstract class PersistentSingleton<T> : Singleton<T> where T : MonoBehaviour
+//Singletons that I don't want to lose during level switches.
+public abstract class NonDestroyableSingleton<T> : MonoBehaviour where T : Component
 {
-    protected override void Awake()
+    public static T Instance { get; private set; }
+
+    protected virtual void Awake()
     {
         if(Instance != null)
         {
             Destroy(gameObject);
         }
-
-        base.Awake();
-    }
-
-    protected override void OnDisable()
-    {
-        DontDestroyOnLoad(gameObject);
-
-        base.OnDisable();
+        else
+        {
+            Instance = this as T;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }
 
